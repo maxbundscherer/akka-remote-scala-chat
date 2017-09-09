@@ -3,14 +3,15 @@ package mb.services
 import mb.utils.DatabaseDriver
 import mb.models.db.UserTableEntity
 
-import akka.event.LoggingAdapter
+import akka.actor.ActorSystem
 import slick.jdbc.meta.MTable
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 
-class MigrationService(databaseService: DatabaseService, log: LoggingAdapter) extends DatabaseDriver with UserTableEntity {
+class MigrationService(databaseService: DatabaseService)(implicit val actorSystem: ActorSystem) extends DatabaseDriver with UserTableEntity {
 
   import databaseDriver._
+  import actorSystem._
 
   log.info("Start migration service")
 

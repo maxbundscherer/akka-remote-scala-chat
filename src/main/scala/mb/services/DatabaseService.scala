@@ -8,6 +8,6 @@ class DatabaseService extends DatabaseDriver {
 
   import databaseDriver._
 
-  final val db: MySQLProfile.backend.Database = Database.forConfig("databaseConfig")
+  val db: MySQLProfile.backend.Database = Database.forConfig("databaseConfig")
 
 }
