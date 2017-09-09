@@ -38,12 +38,12 @@ Author: Maximilian Bundscherer (https://bundscherer-online.de)
 
 ### Requirements
 - SBT
-- MySQL-Database for run (see config `src/main/resources/application.conf`)
+- MySQL-Database **for run** (see config `src/main/resources/application.conf`)
     - host: `localhost`
     - name: `akka-scala-chat`
     - username: `root`
     - password: ""
-- MySQL-Database for test (see config `src/test/resources/application.conf`)
+- MySQL-Database **for test** (see config `src/test/resources/application.conf`)
     - host: `localhost`
     - name: `akka-scala-chat-test`
     - username: `root`
