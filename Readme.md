@@ -52,4 +52,4 @@ Author: Maximilian Bundscherer (https://bundscherer-online.de)
 ### Commands
 - Run server with `sbt run-main mb.MainServer`
 - Run client(s) with `sbt run-main mb.MainClient`
-- Test project with `sbt clean coverage test` and generate coverage reports with `sbt coverageReport`
+- Test project with `sbt clean coverage test` and generate coverage reports with `sbt coverageReport` (important: start with clean test-db)
