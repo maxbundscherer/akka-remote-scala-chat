@@ -30,7 +30,7 @@ Author: Maximilian Bundscherer (https://bundscherer-online.de)
 2. Import SBT project
 3. (Opt) Add SBT task `"run-main mb.MainServer"` (single instance) to your project.
 4. (Opt) Add SBT task `"run-main mb.MainClient"` to your project.
-5. (Opt) Add SBT task `"clean coverage test"` to your project.
+5. (Opt) Add SBT task `clean coverage test` to your project.
 6. (Opt) Add SBT task `coverageReport` to your project.
 7. (Opt) Change logger settings `src/main/resources/application.conf` to `INFO` or `DEBUG`
 8. Start server
