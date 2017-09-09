@@ -5,7 +5,7 @@ import mb.models.UserEntity
 
 import slick.relational.RelationalProfile.ColumnOption.Length
 
-trait UserTableEntity extends DatabaseDriver{
+trait UserTableEntity extends DatabaseDriver {
 
   import databaseDriver._
 
