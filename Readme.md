@@ -15,7 +15,7 @@ Test-Coverage: **73,22%**
 - Login with `login <USERNAME> <PASSWORD>`
 - **Broadcast** messages to all online clients with `<YOURMESSAGE>`
 
-## Used technologies
+### Used technologies
 - Akka: *server and client software*
 - Akka Remote: *network communication*
 - Scala: *programming language*
@@ -53,4 +53,8 @@ Test-Coverage: **73,22%**
 ### Commands
 - Run server with `sbt run-main mb.MainServer`
 - Run client(s) with `sbt run-main mb.MainClient`
-- Test project with `sbt clean coverage test` and generate coverage reports with `sbt coverageReport` (**important: start with clean test-db**)
+
+### Test project with coverage report(s)
+1. Setup clean test database (see requirements)
+2. Run command `sbt clean coverage test`
+3. Run command `sbt coverageReport`
