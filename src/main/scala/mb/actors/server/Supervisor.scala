@@ -45,7 +45,7 @@ class Supervisor(userService: UserService) extends Actor {
 
     case clientSendBroadcastMessage: ServerMessages.ClientSendBroadcastMessage =>
 
-      clientMap.values.foreach(c => {
+      usernameMap.values.foreach(c => {
 
         val msg = "[" + clientSendBroadcastMessage.username + "]: " + clientSendBroadcastMessage.content
         c ! ServerMessages.ServerPushToClient(msg)
