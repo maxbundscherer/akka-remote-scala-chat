@@ -22,17 +22,17 @@ class UserService(databaseService: DatabaseService) extends UserTableEntity with
   def create(username: String, password: String): Unit = Await.result( db.run( userQuery += UserEntity(None, username, password).withHashedPassword ), Duration.Inf )
 
   /**
-    * check authData and return userId
+    * check authData
     * @param username String
     * @param password String
-    * @return Option(None) if authData incorrect / Option(Long) with userId if authData correct
+    * @return Boolean
     */
-  def checkAuthDataAndGetId(username: String, password: String): Option[Long] = {
+  def checkAuthDataAndGetId(username: String, password: String): Boolean = {
 
     val entity = Await.result(db.run( userQuery.filter(_.username === username).result.headOption ), Duration.Inf)
 
-    if(entity.isDefined && entity.get.checkPassword(password)) Option(entity.get.id.get)
-    else None
+    if(entity.isDefined && entity.get.checkPassword(password)) true
+    else false
   }
 
 }

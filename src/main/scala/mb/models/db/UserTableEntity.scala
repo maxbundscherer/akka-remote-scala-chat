@@ -11,11 +11,10 @@ trait UserTableEntity extends DatabaseDriver {
 
   class Users(tag: slick.lifted.Tag) extends Table[UserEntity](tag, "users") {
 
-    def id       = column[Long]   ("id",        O.PrimaryKey, O.AutoInc)
-    def username = column[String] ("username",  Length(50), O.Unique)
+    def username = column[String] ("username",  O.PrimaryKey, Length(50))
     def password = column[String] ("password",  Length(500))
 
-    def * = (id.?, username, password) <> ((UserEntity.apply _).tupled, UserEntity.unapply)
+    def * = (username, password) <> ((UserEntity.apply _).tupled, UserEntity.unapply)
   }
 
   protected val userQuery: TableQuery[Users] = TableQuery[Users]

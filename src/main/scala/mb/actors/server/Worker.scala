@@ -12,7 +12,6 @@ class Worker(userService: UserService) extends Actor {
     * set up by default state
     */
   var clientUsername: String  = ""
-  var clientId: Long          = -1
   var clientRef: ActorRef     = self
 
   /**
@@ -43,10 +42,8 @@ class Worker(userService: UserService) extends Actor {
 
       if(     simpleMessage.message.startsWith("login") && commandArray.length == 3) {
 
-        val tmpClientId = userService.checkAuthDataAndGetId( commandArray(1), commandArray(2) )
-        if(tmpClientId.isDefined) {
+        if( userService.checkAuthDataAndGetId(commandArray(1), commandArray(2)) ) {
           clientUsername = commandArray(1)
-          clientId = tmpClientId.get
           clientRef = sender
           context.parent ! ServerMessages.ClientHasLoggedIn(clientUsername)
           context.become(loggedIn)
