@@ -7,7 +7,7 @@ import akka.actor._
 import com.typesafe.config.ConfigFactory
 import scala.io.StdIn
 
-class MainClient {
+object MainClient extends App {
 
   final val EXIT_STRING: String = "exit"
 
