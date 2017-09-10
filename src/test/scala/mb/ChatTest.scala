@@ -32,7 +32,7 @@ class ChatTest extends TestKit(ActorSystem("clientSystem")) with ImplicitSender 
       expectMsg(SimpleMessage("Login failed: Check auth data"))
     }
 
-    "send login-success if client used right authData" in {
+    "send welcome message if client logged in" in {
 
       serverSupervisor ! SimpleMessage("login testUser testPass")
       expectMsg(SimpleMessage("Welcome \"testUser\"!"))
