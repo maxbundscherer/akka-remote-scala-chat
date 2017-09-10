@@ -16,7 +16,7 @@ Test-Coverage: **73,22%**
 - **Broadcast** messages to all online clients with `<YOURMESSAGE>`
 
 ### Used technologies
-- Akka: *server and client software*
+- Akka: *server and client base*
 - Akka Remote: *network communication*
 - Scala: *programming language*
 - ScalaTest: *testing project*
