@@ -10,6 +10,8 @@ Author: Maximilian Bundscherer (https://bundscherer-online.de)
 - Server and client software included
 - Create account with `create <USERNAME> <PASSWORD>`
 - Login with `login <USERNAME> <PASSWORD>`
+
+## TODO
 - **Broadcast** messages to all clients with `<YOURMESSAGE>`
 - Write private **volatile messages** to a client with `-p <CLIENTID> <YOURMESSAGE>`
 - Write private **permanent messages** to a client with `-s <CLIENTID> <YOURMESSAGE>`
@@ -33,17 +35,19 @@ Author: Maximilian Bundscherer (https://bundscherer-online.de)
 5. (Opt) Add SBT task `clean coverage test` to your project.
 6. (Opt) Add SBT task `coverageReport` to your project.
 7. (Opt) Change logger settings `src/main/resources/application.conf` to `INFO` or `DEBUG`
-8. Start server
-9. Start client(s)
+8. (Opt) Change server address/port `src/main/resources/application.conf` **and** `src/main/mb/actors/client/Supervisor`
+9. (Opt) Change client address/port `src/main/resources/application.conf`
+10. Start server
+11. Start client(s)
 
 ### Requirements
 - SBT
-- MySQL-Database **for run** (see config `src/main/resources/application.conf`)
+- Clean MySQL-Database **for run** (see config `src/main/resources/application.conf`)
     - host: `localhost`
     - name: `akka-scala-chat`
     - username: `root`
     - password: ""
-- MySQL-Database **for test** (see config `src/test/resources/application.conf`)
+- Clean MySQL-Database **for test** (see config `src/test/resources/application.conf`)
     - host: `localhost`
     - name: `akka-scala-chat-test`
     - username: `root`
