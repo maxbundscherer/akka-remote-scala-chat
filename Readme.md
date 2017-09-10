@@ -1,6 +1,6 @@
 # Akka Remote Scala Chat
 
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/maxbundscherer/akka-remote-scala-chat)
 [![shields.io](http://img.shields.io/badge/license-Apache2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 **Test-Coverage: 72,53%**
