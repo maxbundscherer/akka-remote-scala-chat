@@ -34,15 +34,4 @@ class MessageService(databaseService: DatabaseService) extends MessageTableEntit
     items
   }
 
-  /**
-    * get the count of the unread messages from user
-    * @param username String
-    * @return Int
-    */
-  def getCountUnreadMessagesFromUser(username: String): Int = {
-
-    val items: Seq[MessageEntity] = Await.result( db.run( messageQuery.filter(_.toUser === username).filter(_.hasRead === false).result ), Duration.Inf )
-    items.size
-  }
-
 }
