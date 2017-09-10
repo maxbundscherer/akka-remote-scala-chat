@@ -12,5 +12,5 @@ trait BaseTest {
   implicit val actorSystem: ActorSystem = InitBaseline.actorSystem
 
   val userService     = new UserService(InitBaseline.databaseService)
-
+  var messageService  = new MessageService(InitBaseline.databaseService)
 }

@@ -19,8 +19,9 @@ object MainServer extends App {
   new MigrationService(databaseService)
 
   val userService       = new UserService(databaseService)
+  val messageService    = new MessageService(databaseService)
 
-  val supervisor = actorSystem.actorOf( Props( new Supervisor(userService) ), "supervisor" )
+  val supervisor = actorSystem.actorOf( Props( new Supervisor(userService, messageService) ), "supervisor" )
 
   actorSystem.log.info("Press enter to shutdown actor-system")
   StdIn.readLine()

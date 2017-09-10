@@ -2,12 +2,12 @@ package mb.actors.server
 
 import mb.utils.GlobalMessages._
 import mb.utils.ServerMessages
-import mb.services.UserService
+import mb.services.{MessageService, UserService}
 
 import akka.actor._
 import scala.collection.mutable
 
-class Supervisor(userService: UserService) extends Actor {
+class Supervisor(userService: UserService, messageService: MessageService) extends Actor {
 
   /**
     * ActorRef = RemoteRef
@@ -43,6 +43,9 @@ class Supervisor(userService: UserService) extends Actor {
       usernameMap.put( clientHasLoggedIn.clientUsername, sender )
       sender ! ServerMessages.ServerPushToClient("Welcome \"" + clientHasLoggedIn.clientUsername + "\"!")
 
+      val unreadMessages = getUnreadMessagesFromUserAsString(clientHasLoggedIn.clientUsername)
+      if(unreadMessages.isDefined) sender ! ServerMessages.ServerPushToClient(unreadMessages.get)
+
     case clientSendBroadcastMessage: ServerMessages.ClientSendBroadcastMessage =>
 
       usernameMap.values.foreach(c => {
@@ -51,6 +54,36 @@ class Supervisor(userService: UserService) extends Actor {
         c ! ServerMessages.ServerPushToClient(msg)
 
       })
+
+    case clientSendPrivateMessage: ServerMessages.ClientSendPrivateMessage =>
+
+      if(userService.existsUser(clientSendPrivateMessage.toUser)) {
+
+        messageService.writePrivateMessage(clientSendPrivateMessage.clientUsername, clientSendPrivateMessage.toUser, clientSendPrivateMessage.content)
+        sender ! ServerMessages.ServerPushToClient("Private message send")
+
+        val onlineUserRef = usernameMap.get(clientSendPrivateMessage.clientUsername)
+        if(onlineUserRef.isDefined) {
+          onlineUserRef.get ! ServerMessages.ServerPushToClient(getUnreadMessagesFromUserAsString(clientSendPrivateMessage.clientUsername).get)
+        }
+
+      }
+      else sender ! ServerMessages.ServerPushToClient("Error: User not found")
+
+  }
+
+  /**
+    * get all unread messages from user as text
+    * @param username String
+    * @return Option(String) with text / None if there are no new messages
+    */
+  def getUnreadMessagesFromUserAsString(username: String): Option[String] = {
+
+    var messages: String = ""
+    messageService.getUnreadMessagesFromUser(username).foreach(m => messages += "[" + m.fromUser + "] (PM): " + m.content)
+
+    if(messages.equals("")) return None
+    Option(messages)
   }
 
 }
