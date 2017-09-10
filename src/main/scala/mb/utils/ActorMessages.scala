@@ -9,9 +9,9 @@ object ClientMessages {
 object ServerMessages {
 
   case class ServerPushToClient(content: String)
-  case class ClientSendBroadcastMessage(content: String, username: String)
 
   case class ClientHasLoggedIn(username: String)
+  case class ClientSendBroadcastMessage(content: String, username: String)
 
 }
 
