@@ -77,7 +77,7 @@ class Supervisor(userService: UserService, messageService: MessageService) exten
   }
 
   /**
-    * get all unread messages from user as text
+    * get all unread messages from user and convert to text
     * @param username String
     * @return Option(String) with text / None if there are no new messages
     */
