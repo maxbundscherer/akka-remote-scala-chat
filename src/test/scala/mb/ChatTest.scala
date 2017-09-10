@@ -12,12 +12,36 @@ class ChatTest extends TestKit(ActorSystem("clientSystem")) with ImplicitSender 
 
   val serverSupervisor = actorSystem.actorOf( Props(new Supervisor(userService)) )
 
-  "serverSupervisor" must {
+  "serverSupervisor with clean test-db" must {
 
-    "send back login-demand if client isn't logged in" in {
+    "send login-demand if client isn't logged in" in {
 
       serverSupervisor ! SimpleMessage("test")
       expectMsg(SimpleMessage("Please login with \"login <USERNAME> <PASSWORD>\" or create user with \"create <USERNAME> <PASSWORD>\""))
+    }
+
+    "create user" in {
+
+      serverSupervisor ! SimpleMessage("create testUser testPass")
+      expectMsg(SimpleMessage("User created"))
+    }
+
+    "send login-error if client used wrong authData" in {
+
+      serverSupervisor ! SimpleMessage("login testUser testWrongPass")
+      expectMsg(SimpleMessage("Login failed: Check auth data"))
+    }
+
+    "send login-success if client used right authData" in {
+
+      serverSupervisor ! SimpleMessage("login testUser testPass")
+      expectMsg(SimpleMessage("Welcome \"testUser\"!"))
+    }
+
+    "reply with modified message" in {
+
+      serverSupervisor ! SimpleMessage("testMessage")
+      expectMsg(SimpleMessage("testMessage - Pong"))
     }
 
   }
