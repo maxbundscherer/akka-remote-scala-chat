@@ -17,6 +17,8 @@ object MainServer extends App {
 
   new MigrationService(databaseService)
 
+  //TODO: Add supervisor
+
   actorSystem.log.info("Press enter to shutdown actor-system")
   StdIn.readLine()
   actorSystem.terminate()

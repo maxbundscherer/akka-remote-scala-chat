@@ -4,7 +4,7 @@ import mb.services._
 
 import akka.actor.ActorSystem
 
-object InitServer {
+object InitBaseline {
 
   implicit val actorSystem = ActorSystem()
 

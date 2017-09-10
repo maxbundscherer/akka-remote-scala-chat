@@ -16,9 +16,10 @@ class UserService(databaseService: DatabaseService) extends UserTableEntity with
 
   /**
     * create user
-    * @param userEntity UserEntity (without hashedPassword)
+    * @param username String
+    * @param password String
     */
-  def create(userEntity: UserEntity): Unit = Await.result( db.run( userQuery += userEntity.withHashedPassword ), Duration.Inf )
+  def create(username: String, password: String): Unit = Await.result( db.run( userQuery += UserEntity(None, username, password).withHashedPassword ), Duration.Inf )
 
   /**
     * check authData and return userId
