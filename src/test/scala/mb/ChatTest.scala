@@ -75,5 +75,18 @@ class ChatTest extends TestKit(ActorSystem("clientSystem")) with ImplicitSender 
       expectMsg(SimpleMessage("Private message send"))
     }
 
+    "reply with leave-message if client logs out" in {
+
+      serverSupervisor ! SimpleMessage("-logout")
+      expectMsg(SimpleMessage("Bye bye"))
+    }
+
+    "reply with welcome message and new messages if testUser2 logged in" in {
+
+      serverSupervisor ! SimpleMessage("login testUser2 testPass")
+      expectMsg(SimpleMessage("Welcome \"testUser2\"!"))
+      expectMsg(SimpleMessage("[testUser] (PM): testMessage"))
+    }
+
   }
 }

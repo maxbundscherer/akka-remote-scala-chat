@@ -7,7 +7,7 @@
 
 Author: Maximilian Bundscherer (https://bundscherer-online.de)
 
-Test-Coverage: **73,22%**
+Test-Coverage: **84.96%**
 
 ## Overview / Features
 - Server and client software included
@@ -15,6 +15,7 @@ Test-Coverage: **73,22%**
 - Login with `login <USERNAME> <PASSWORD>`
 - **Broadcast messages** to all online clients with `<YOURMESSAGE>`
 - Write **private messages** with `-p <USERNAME> <YOURMESSAGE>`
+- Logout with `-logout`
 
 ### Used technologies
 - Akka: *server and client base*

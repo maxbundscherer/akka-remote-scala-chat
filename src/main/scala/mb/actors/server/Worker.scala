@@ -34,6 +34,19 @@ class Worker(userService: UserService) extends Actor {
       }
 
       /**
+        * logout
+        */
+      else if(simpleMessage.message.equals("-logout")) {
+
+        context.parent ! ServerMessages.ClientHasLoggedOut(clientUsername)
+        clientUsername = ""
+        clientRef = self
+        sender ! SimpleMessage("Bye bye")
+        context.unbecome()
+
+      }
+
+      /**
         * broadcast message or unknown command
         */
       else {

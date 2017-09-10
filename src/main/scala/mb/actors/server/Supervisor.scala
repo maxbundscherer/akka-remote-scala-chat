@@ -46,6 +46,10 @@ class Supervisor(userService: UserService, messageService: MessageService) exten
       val unreadMessages = getUnreadMessagesFromUserAsString(clientHasLoggedIn.clientUsername)
       if(unreadMessages.isDefined) sender ! ServerMessages.ServerPushToClient(unreadMessages.get)
 
+    case clientHasLoggedOut: ServerMessages.ClientHasLoggedOut =>
+
+      usernameMap.remove(clientHasLoggedOut.clientUsername)
+
     case clientSendBroadcastMessage: ServerMessages.ClientSendBroadcastMessage =>
 
       usernameMap.values.foreach(c => {
