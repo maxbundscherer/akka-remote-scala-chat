@@ -68,7 +68,7 @@ class Supervisor(userService: UserService, messageService: MessageService) exten
 
         val onlineUserRef = usernameMap.get(clientSendPrivateMessage.toUser)
         if(onlineUserRef.isDefined) {
-          onlineUserRef.get ! ServerMessages.ServerPushToClient(getUnreadMessagesFromUserAsString(clientSendPrivateMessage.clientUsername).get)
+          onlineUserRef.get ! ServerMessages.ServerPushToClient(getUnreadMessagesFromUserAsString(clientSendPrivateMessage.toUser).get)
         }
 
       }
