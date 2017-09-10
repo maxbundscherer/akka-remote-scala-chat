@@ -38,10 +38,10 @@ class ChatTest extends TestKit(ActorSystem("clientSystem")) with ImplicitSender 
       expectMsg(SimpleMessage("Welcome \"testUser\"!"))
     }
 
-    "reply with modified message" in {
+    "reply with broadcast message if client send broadcast message" in {
 
       serverSupervisor ! SimpleMessage("testMessage")
-      expectMsg(SimpleMessage("testMessage - Pong"))
+      expectMsg(SimpleMessage("[testUser]: testMessage"))
     }
 
   }

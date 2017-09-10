@@ -1,6 +1,7 @@
 package mb.actors.server
 
 import mb.utils.GlobalMessages._
+import mb.utils.ServerMessages
 import mb.services.UserService
 
 import akka.actor._
@@ -30,6 +31,15 @@ class Supervisor(userService: UserService) extends Actor {
       }
 
       workerRef.get forward simpleMessage
+
+    case clientSendBroadcastMessage: ServerMessages.ClientSendBroadcastMessage =>
+
+      clientMap.values.foreach(c => {
+
+        val msg = "[" + clientSendBroadcastMessage.username + "]: " + clientSendBroadcastMessage.content
+        c ! ServerMessages.ServerPushToClient(msg)
+
+      })
   }
 
 }

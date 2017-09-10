@@ -8,6 +8,9 @@ object ClientMessages {
 
 object ServerMessages {
 
+  case class ServerPushToClient(content: String)
+  case class ClientSendBroadcastMessage(content: String, username: String)
+
 }
 
 object GlobalMessages {

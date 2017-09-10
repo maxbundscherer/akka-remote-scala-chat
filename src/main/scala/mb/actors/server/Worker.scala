@@ -1,6 +1,7 @@
 package mb.actors.server
 
 import mb.utils.GlobalMessages._
+import mb.utils.ServerMessages
 import mb.services.UserService
 
 import akka.actor._
@@ -20,8 +21,14 @@ class Worker(userService: UserService) extends Actor {
     */
   def loggedIn: Receive = {
 
-    case simpleMessage: SimpleMessage => sender ! SimpleMessage( simpleMessage.message + " - Pong" )
+    case simpleMessage: SimpleMessage =>
 
+      val message = simpleMessage.message
+      context.parent ! ServerMessages.ClientSendBroadcastMessage(message, clientUsername)
+
+    case serverPushToClient: ServerMessages.ServerPushToClient =>
+
+      clientRef ! SimpleMessage(serverPushToClient.content)
   }
 
   /**

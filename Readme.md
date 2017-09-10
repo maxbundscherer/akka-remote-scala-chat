@@ -3,7 +3,7 @@
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/maxbundscherer/akka-remote-scala-chat)
 [![shields.io](http://img.shields.io/badge/license-Apache2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
-**Test-Coverage: 72,53%**
+**Test-Coverage: 74,19%**
 
 Author: Maximilian Bundscherer (https://bundscherer-online.de)
 
@@ -13,9 +13,9 @@ Author: Maximilian Bundscherer (https://bundscherer-online.de)
 - Server and client software included
 - Create account with `create <USERNAME> <PASSWORD>`
 - Login with `login <USERNAME> <PASSWORD>`
+- **Broadcast** messages to all online clients with `<YOURMESSAGE>`
 
 ## TODO
-- **Broadcast** messages to all clients with `<YOURMESSAGE>`
 - Write private **volatile messages** to a client with `-p <CLIENTID> <YOURMESSAGE>`
 - Write private **permanent messages** to a client with `-s <CLIENTID> <YOURMESSAGE>`
 - See all online clients with `-clients`
