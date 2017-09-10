@@ -15,14 +15,14 @@ Test-Coverage: **73,22%**
 - Login with `login <USERNAME> <PASSWORD>`
 - **Broadcast** messages to all online clients with `<YOURMESSAGE>`
 
-## Technologies
-- Akka
-- Akka Remote
-- Scala
-- ScalaTest
-- Slick
-- JBCrypt
-- sbt-scoverage
+## Used technologies
+- Akka: *server and client software*
+- Akka Remote: *network communication*
+- Scala: *programming language*
+- ScalaTest: *testing project*
+- Slick: *database connection*
+- JBCrypt: *hashing user password*
+- sbt-scoverage: *generate test coverage report(s)*
 
 ## Let's get started
 1. See requirements!
