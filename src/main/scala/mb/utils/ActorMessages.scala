@@ -11,6 +11,8 @@ object ServerMessages {
   case class ServerPushToClient(content: String)
   case class ClientSendBroadcastMessage(content: String, username: String)
 
+  case class ClientHasLoggedIn(username: String)
+
 }
 
 object GlobalMessages {

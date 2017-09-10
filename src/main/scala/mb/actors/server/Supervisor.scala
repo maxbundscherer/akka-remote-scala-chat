@@ -16,6 +16,12 @@ class Supervisor(userService: UserService) extends Actor {
   var clientMap: mutable.HashMap[ActorRef, ActorRef] = new mutable.HashMap()
 
   /**
+    * String = Username
+    * ActorRef = WorkerRef
+    */
+  var usernameMap: mutable.HashMap[String, ActorRef] = new mutable.HashMap()
+
+  /**
     * default state
     * @return Receive
     */
@@ -31,6 +37,11 @@ class Supervisor(userService: UserService) extends Actor {
       }
 
       workerRef.get forward simpleMessage
+
+    case clientHasLoggedIn: ServerMessages.ClientHasLoggedIn =>
+
+      usernameMap.put( clientHasLoggedIn.username, sender )
+      sender ! ServerMessages.ServerPushToClient("Welcome \"" + clientHasLoggedIn.username + "\"!")
 
     case clientSendBroadcastMessage: ServerMessages.ClientSendBroadcastMessage =>
 

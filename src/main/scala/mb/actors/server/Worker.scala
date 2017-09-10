@@ -48,7 +48,7 @@ class Worker(userService: UserService) extends Actor {
           clientUsername = commandArray(1)
           clientId = tmpClientId.get
           clientRef = sender
-          sender ! SimpleMessage("Welcome \"" + clientUsername + "\"!")
+          context.parent ! ServerMessages.ClientHasLoggedIn(clientUsername)
           context.become(loggedIn)
         }
         else sender ! SimpleMessage("Login failed: Check auth data")
