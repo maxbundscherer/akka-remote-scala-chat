@@ -22,8 +22,27 @@ class Worker(userService: UserService) extends Actor {
 
     case simpleMessage: SimpleMessage =>
 
-      val message = simpleMessage.message
-      context.parent ! ServerMessages.ClientSendBroadcastMessage(message, clientUsername)
+      val commandArray = simpleMessage.message.split(" ")
+
+      /**
+        * send private message
+        */
+      if(simpleMessage.message.startsWith("-p") && commandArray.length > 2) {
+
+        val content = simpleMessage.message.substring( simpleMessage.message.indexOf(" ", 3) + 1 )
+        context.parent ! ServerMessages.ClientSendPrivateMessage( commandArray(1), content, clientUsername )
+      }
+
+      /**
+        * broadcast message or unknown command
+        */
+      else {
+
+        val message = simpleMessage.message
+
+        if(!message.startsWith("-")) context.parent ! ServerMessages.ClientSendBroadcastMessage(message, clientUsername)
+        else sender ! SimpleMessage("Error: Unknown command")
+      }
 
     case serverPushToClient: ServerMessages.ServerPushToClient =>
 
