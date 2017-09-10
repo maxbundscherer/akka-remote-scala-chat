@@ -62,7 +62,7 @@ class Supervisor(userService: UserService, messageService: MessageService) exten
         messageService.writePrivateMessage(clientSendPrivateMessage.clientUsername, clientSendPrivateMessage.toUser, clientSendPrivateMessage.content)
         sender ! ServerMessages.ServerPushToClient("Private message send")
 
-        val onlineUserRef = usernameMap.get(clientSendPrivateMessage.clientUsername)
+        val onlineUserRef = usernameMap.get(clientSendPrivateMessage.toUser)
         if(onlineUserRef.isDefined) {
           onlineUserRef.get ! ServerMessages.ServerPushToClient(getUnreadMessagesFromUserAsString(clientSendPrivateMessage.clientUsername).get)
         }
