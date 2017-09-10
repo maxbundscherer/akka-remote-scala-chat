@@ -13,7 +13,8 @@ Test-Coverage: **73,22%**
 - Server and client software included
 - Create account with `create <USERNAME> <PASSWORD>`
 - Login with `login <USERNAME> <PASSWORD>`
-- **Broadcast** messages to all online clients with `<YOURMESSAGE>`
+- **Broadcast messages** to all online clients with `<YOURMESSAGE>`
+- Write **private messages** with `-p <USERNAME> <YOURMESSAGE>`
 
 ### Used technologies
 - Akka: *server and client base*
