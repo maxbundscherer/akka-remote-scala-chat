@@ -3,23 +3,17 @@
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/maxbundscherer/akka-remote-scala-chat)
 [![shields.io](http://img.shields.io/badge/license-Apache2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
-**Test-Coverage: 73,22%**
+**A chat based on akka remote (written in scala)**
 
 Author: Maximilian Bundscherer (https://bundscherer-online.de)
 
-**A chat based on akka remote (written in scala)**
+Test-Coverage: **73,22%**
 
 ## Overview / Features
 - Server and client software included
 - Create account with `create <USERNAME> <PASSWORD>`
 - Login with `login <USERNAME> <PASSWORD>`
 - **Broadcast** messages to all online clients with `<YOURMESSAGE>`
-
-## TODO
-- Write private **volatile messages** to a client with `-p <CLIENTID> <YOURMESSAGE>`
-- Write private **permanent messages** to a client with `-s <CLIENTID> <YOURMESSAGE>`
-- See all online clients with `-clients`
-- See all your permanent messages with `-mymsg`
 
 ## Technologies
 - Akka
