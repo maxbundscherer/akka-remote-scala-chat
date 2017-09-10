@@ -35,4 +35,15 @@ class UserService(databaseService: DatabaseService) extends UserTableEntity with
     else false
   }
 
+  /**
+    * check if user exists
+    * @param username String
+    * @return Boolean
+    */
+  def existsUser(username: String): Boolean = {
+
+    val entity = Await.result(db.run( userQuery.filter(_.username === username).result.headOption ), Duration.Inf)
+    entity.isDefined
+  }
+
 }
