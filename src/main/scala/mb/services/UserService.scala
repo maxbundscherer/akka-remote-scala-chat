@@ -27,7 +27,7 @@ class UserService(databaseService: DatabaseService) extends UserTableEntity with
     * @param password String
     * @return Boolean
     */
-  def checkAuthDataAndGetId(username: String, password: String): Boolean = {
+  def checkAuthData(username: String, password: String): Boolean = {
 
     val entity = Await.result(db.run( userQuery.filter(_.username === username).result.headOption ), Duration.Inf)
 

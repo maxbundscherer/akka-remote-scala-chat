@@ -42,7 +42,7 @@ class Worker(userService: UserService) extends Actor {
 
       if(     simpleMessage.message.startsWith("login") && commandArray.length == 3) {
 
-        if( userService.checkAuthDataAndGetId(commandArray(1), commandArray(2)) ) {
+        if( userService.checkAuthData(commandArray(1), commandArray(2)) ) {
           clientUsername = commandArray(1)
           clientRef = sender
           context.parent ! ServerMessages.ClientHasLoggedIn(clientUsername)

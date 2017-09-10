@@ -26,7 +26,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick-hikaricp" % slickVersion
 )
 
-//MySql connector
+//MySQL connector
 libraryDependencies += "mysql" % "mysql-connector-java" % mySqlVersion
 
 //JBCrypt
