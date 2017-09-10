@@ -14,7 +14,7 @@ class ChatTest extends TestKit(ActorSystem("clientSystem")) with ImplicitSender 
 
   "serverSupervisor with clean test-db" must {
 
-    "send login-demand if client isn't logged in" in {
+    "replay with login-demand if client isn't logged in" in {
 
       serverSupervisor ! SimpleMessage("test")
       expectMsg(SimpleMessage("Please login with \"login <USERNAME> <PASSWORD>\" or create user with \"create <USERNAME> <PASSWORD>\""))
@@ -26,13 +26,13 @@ class ChatTest extends TestKit(ActorSystem("clientSystem")) with ImplicitSender 
       expectMsg(SimpleMessage("User created"))
     }
 
-    "send login-error if client used wrong authData" in {
+    "replay with login-error if client used wrong authData" in {
 
       serverSupervisor ! SimpleMessage("login testUser testWrongPass")
       expectMsg(SimpleMessage("Login failed: Check auth data"))
     }
 
-    "send welcome message if client logged in" in {
+    "reply with welcome message if client logged in" in {
 
       serverSupervisor ! SimpleMessage("login testUser testPass")
       expectMsg(SimpleMessage("Welcome \"testUser\"!"))
@@ -43,6 +43,13 @@ class ChatTest extends TestKit(ActorSystem("clientSystem")) with ImplicitSender 
       serverSupervisor ! SimpleMessage("testMessage")
       expectMsg(SimpleMessage("[testUser]: testMessage"))
     }
+
+    "reply with error message if client send unknown command" in {
+
+      serverSupervisor ! SimpleMessage("-test test")
+      expectMsg(SimpleMessage("Error: Unknown command"))
+    }
+
 
   }
 }
