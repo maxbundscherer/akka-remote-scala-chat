@@ -1,8 +1,8 @@
-package mb.actors.server
+package com.mb.akkaremotechat.actors.server
 
-import mb.utils.GlobalMessages._
-import mb.utils.ServerMessages
-import mb.services.UserService
+import com.mb.akkaremotechat.utils.GlobalMessages._
+import com.mb.akkaremotechat.utils.ServerMessages
+import com.mb.akkaremotechat.services.UserService
 
 import akka.actor._
 

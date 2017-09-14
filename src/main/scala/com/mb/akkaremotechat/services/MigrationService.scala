@@ -1,7 +1,7 @@
-package mb.services
+package com.mb.akkaremotechat.services
 
-import mb.utils.DatabaseDriver
-import mb.models.db._
+import com.mb.akkaremotechat.utils.DatabaseDriver
+import com.mb.akkaremotechat.models.db._
 
 import akka.actor.ActorSystem
 import slick.jdbc.meta.MTable

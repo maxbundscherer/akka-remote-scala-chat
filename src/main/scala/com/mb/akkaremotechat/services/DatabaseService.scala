@@ -1,6 +1,6 @@
-package mb.services
+package com.mb.akkaremotechat.services
 
-import mb.utils.DatabaseDriver
+import com.mb.akkaremotechat.utils.DatabaseDriver
 
 import slick.jdbc.MySQLProfile
 

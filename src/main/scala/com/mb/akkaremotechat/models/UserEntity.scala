@@ -1,4 +1,4 @@
-package mb.models
+package com.mb.akkaremotechat.models
 
 import org.mindrot.jbcrypt.BCrypt
 

@@ -29,12 +29,12 @@ Test-Coverage: **84.96%**
 ## Let's get started
 1. See requirements!
 2. Import SBT project
-3. (Opt) Add SBT task `"run-main mb.MainServer"` (single instance) to your project.
-4. (Opt) Add SBT task `"run-main mb.MainClient"` to your project.
+3. (Opt) Add SBT task `"run-main com.mb.akkaremoteChat.MainServer"` (single instance) to your project.
+4. (Opt) Add SBT task `"run-main com.mb.akkaremoteChat.MainClient"` to your project.
 5. (Opt) Add SBT task `clean coverage test` to your project.
 6. (Opt) Add SBT task `coverageReport` to your project.
 7. (Opt) Change logger settings `src/main/resources/application.conf` to `INFO` or `DEBUG`
-8. (Opt) Change server address/port `src/main/resources/application.conf` **and** `src/main/mb/actors/client/Supervisor`
+8. (Opt) Change server address/port `src/main/resources/application.conf` **and** `src/main/com/mb/akkaremotechat/actors/client/Supervisor`
 9. (Opt) Change client address/port `src/main/resources/application.conf`
 10. Start server
 11. Start client(s)
@@ -53,8 +53,8 @@ Test-Coverage: **84.96%**
     - password: ""
     
 ### Commands
-- Run server with `sbt run-main mb.MainServer`
-- Run client(s) with `sbt run-main mb.MainClient`
+- Run server with `sbt run-main com.mb.akkaremoteChat.MainServer`
+- Run client(s) with `sbt run-main com.mb.akkaremoteChat.MainClient`
 
 ### Test project with coverage report(s)
 1. Setup clean test database (see requirements)

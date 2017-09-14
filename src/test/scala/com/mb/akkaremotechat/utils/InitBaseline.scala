@@ -1,6 +1,6 @@
-package mb.utils
+package com.mb.akkaremotechat.utils
 
-import mb.services._
+import com.mb.akkaremotechat.services._
 
 import akka.actor.ActorSystem
 

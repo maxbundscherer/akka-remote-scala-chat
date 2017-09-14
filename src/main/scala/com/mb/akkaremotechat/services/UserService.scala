@@ -1,8 +1,8 @@
-package mb.services
+package com.mb.akkaremotechat.services
 
-import mb.utils.DatabaseDriver
-import mb.models.UserEntity
-import mb.models.db.UserTableEntity
+import com.mb.akkaremotechat.utils.DatabaseDriver
+import com.mb.akkaremotechat.models.UserEntity
+import com.mb.akkaremotechat.models.db.UserTableEntity
 
 import scala.concurrent.duration.Duration
 import scala.concurrent.Await

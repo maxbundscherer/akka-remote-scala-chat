@@ -1,4 +1,4 @@
-package mb.utils
+package com.mb.akkaremotechat.utils
 
 trait DatabaseDriver {
 

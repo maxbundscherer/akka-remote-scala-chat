@@ -1,9 +1,9 @@
-package mb
+package com.mb.akkaremotechat
 
-import mb.actors.client.Supervisor
-import mb.utils.ClientMessages
+import com.mb.akkaremotechat.actors.client.Supervisor
+import com.mb.akkaremotechat.utils.ClientMessages
 
-import akka.actor._
+import akka.actor.{ActorRef, ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 import scala.io.StdIn
 

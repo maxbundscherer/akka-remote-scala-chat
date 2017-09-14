@@ -1,7 +1,7 @@
-package mb.models.db
+package com.mb.akkaremotechat.models.db
 
-import mb.utils.DatabaseDriver
-import mb.models.UserEntity
+import com.mb.akkaremotechat.utils.DatabaseDriver
+import com.mb.akkaremotechat.models.UserEntity
 
 import slick.relational.RelationalProfile.ColumnOption.Length
 

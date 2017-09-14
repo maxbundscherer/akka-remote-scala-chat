@@ -1,11 +1,10 @@
-package mb
+package com.mb.akkaremotechat
 
-import mb.utils.GlobalMessages.SimpleMessage
-import mb.actors.server.Supervisor
+import com.mb.akkaremotechat.actors.server.Supervisor
+import com.mb.akkaremotechat.utils.GlobalMessages.SimpleMessage
 
 import akka.actor._
 import akka.testkit._
-
 import org.scalatest._
 
 class ChatTest extends TestKit(ActorSystem("clientSystem")) with ImplicitSender with WordSpecLike with Matchers with BaseTest {
