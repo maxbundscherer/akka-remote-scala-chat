@@ -32,5 +32,14 @@ libraryDependencies += "mysql" % "mysql-connector-java" % mySqlVersion
 //JBCrypt
 libraryDependencies += "org.mindrot" % "jbcrypt" % "0.4"
 
+//SBT native packager for docker
+enablePlugins(JavaAppPackaging)
+enablePlugins(DockerPlugin)
+
+//Docker settings
+dockerExposedPorts := Seq(5150)
+mainClass in Compile := Some("com.mb.akkaremotechat.MainServer")
+dockerEntrypoint := Seq("bin/%s" format executableScriptName.value, "-Dconfig.resource=docker.conf")
+
 //SLF4J Logger (for slick) - disabled - enable if you want slick to use a real logger
 //libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.1.3"

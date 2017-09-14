@@ -11,6 +11,7 @@ Test-Coverage: **84.96%**
 
 ## Overview / Features
 - Server and client software included
+- Docker local publish included (for server)
 - Create account with `create <USERNAME> <PASSWORD>`
 - Login with `login <USERNAME> <PASSWORD>`
 - **Broadcast messages** to all online clients with `<YOURMESSAGE>`
@@ -20,6 +21,7 @@ Test-Coverage: **84.96%**
 ### Used technologies
 - Akka: *server and client base*
 - Akka Remote: *network communication*
+- Docker: *Container*
 - Scala: *programming language*
 - ScalaTest: *testing project*
 - Slick: *database connection*
@@ -55,6 +57,12 @@ Test-Coverage: **84.96%**
 ### Commands
 - Run server with `sbt run-main com.mb.akkaremoteChat.MainServer`
 - Run client(s) with `sbt run-main com.mb.akkaremoteChat.MainClient`
+
+### Docker local publish
+1. (Opt) Change ports in `build.sbt`
+2. (Opt) Change main class in `build.sbt`
+3. Run command `sbt docker:publishLocal`
+4. Run image `docker run --name akka-remote-scala-chat -p 5150:5150 <IMAGE-ID>`
 
 ### Test project with coverage report(s)
 1. Setup clean test database (see requirements)

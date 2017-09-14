@@ -6,8 +6,6 @@ import com.mb.akkaremotechat.services._
 import akka.actor.{ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
-import scala.io.StdIn
-
 object MainServer extends App {
 
   val config = ConfigFactory.load()
@@ -23,8 +21,5 @@ object MainServer extends App {
 
   val supervisor = actorSystem.actorOf( Props( new Supervisor(userService, messageService) ), "supervisor" )
 
-  actorSystem.log.info("Press enter to shutdown actor-system")
-  StdIn.readLine()
-  actorSystem.terminate()
-
+  actorSystem.log.info("System ready");
 }
