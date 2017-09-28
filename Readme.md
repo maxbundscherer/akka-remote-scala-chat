@@ -35,20 +35,20 @@ Test-Coverage: **84.96%**
 4. (Opt) Add SBT task ``"run-main com.mb.akkaremoteChat.MainClient"`` to your project.
 5. (Opt) Add SBT task ``clean coverage test`` to your project.
 6. (Opt) Add SBT task ``coverageReport`` to your project.
-7. (Opt) Change logger settings ``src/main/resources/application.conf`` to `INFO` or `DEBUG`
-8. (Opt) Change server address/port ``src/main/resources/application.conf`` **and** ``src/main/com/mb/akkaremotechat/actors/client/Supervisor``
-9. (Opt) Change client address/port ``src/main/resources/application.conf``
+7. (Opt) Change logger settings ``src/scala/main/resources/application.conf`` to `INFO` or `DEBUG`
+8. (Opt) Change server address/port ``src/scala/main/resources/application.conf`` **and** ``src/scala/main/com/mb/akkaremotechat/actors/client/Supervisor``
+9. (Opt) Change client address/port ``src/scala/main/resources/application.conf``
 10. Start server
 11. Start client(s)
 
 ### Requirements
 - SBT
-- Clean MySQL-Database **for run** (see config ``src/main/resources/application.conf``)
+- Clean MySQL-Database **for run** (see config ``src/scala/main/resources/application.conf``)
     - host: ``localhost``
     - name: ``akka-scala-chat``
     - username: ``root``
     - password: ""
-- Clean MySQL-Database **for test** (see config ``src/test/resources/application.conf``)
+- Clean MySQL-Database **for test** (see config ``src/scala/test/resources/application.conf``)
     - host: ``localhost``
     - name: ``akka-scala-chat-test``
     - username: ``root``
