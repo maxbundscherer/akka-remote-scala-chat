@@ -9,7 +9,7 @@ Author: Maximilian Bundscherer (https://bundscherer-online.de)
 
 Test-Coverage: **84.96%**
 
-Do **not** use akka remote without akka cluster in production-mode 
+Do **not** use akka remote without akka cluster and do **not** use java serializer in production-mode
 
 ## Overview / Features
 - Server and client software included
