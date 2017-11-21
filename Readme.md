@@ -9,6 +9,8 @@ Author: Maximilian Bundscherer (https://bundscherer-online.de)
 
 Test-Coverage: **84.96%**
 
+Do **not** use akka remote without akka cluster in production-mode 
+
 ## Overview / Features
 - Server and client software included
 - Docker local publish included (for server)
